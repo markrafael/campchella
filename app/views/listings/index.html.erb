@@ -1,0 +1,24 @@
+<h1>Listings (<%= @listings.length %>)</h1>
+<table>
+  <thead>
+  <tr>
+    <th>Date Added</th>
+    <th>Post</th>
+    <th>Location</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @listings.each do |listing| %>
+    <tr>
+      <td><%= listing.created_at.strftime('%m/%d/%y %I:%M %p') %></td>
+      <td>
+        <%= link_to(listing.title, "http://www.craigslist.org#{listing.url}") %>
+      </td>
+      <td>
+        <%= listing.location %>
+      </td>
+    </tr>
+  <% end %>
+  <tr></tr>
+  </tbody>
+</table>
